@@ -56,7 +56,7 @@ class Solution:
 		return list(map(lambda x : x[1], res))
 """
 
-
+"""
 class Solution:
 	def groupAnagrams(self, strs):
 		res = {}
@@ -69,6 +69,22 @@ class Solution:
 		soln = []
 		for k in res:
 			soln.append(res[k])
+		return soln
+"""
+
+# attempt #3
+class Solution:
+	def groupAnagrams(self, strs):
+		res = {}
+		for i, s in enumerate(strs):
+			s_alpha = str(sorted(s))
+			if not s_alpha in res:
+				res[s_alpha] = [i]
+			else:
+				res[s_alpha].append(i)
+		soln = []
+		for k in res:
+			soln.append([strs[i] for i in res[k]])
 		return soln
 
 s = Solution()
