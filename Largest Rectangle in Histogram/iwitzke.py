@@ -4,18 +4,18 @@ from typing import *
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
 
-		# base cases
+        # base cases
         if len(heights) == 1:
             return heights[0]
         if len(heights) == 0:
             return 0
 
-		# divide
+        # divide
         mid = len(heights) // 2
         l = self.largestRectangleArea(heights[:mid])
         r = self.largestRectangleArea(heights[mid:])
 
-		# conquer
+        # conquer
         i = mid - 1
         j = mid
         min_height = min(heights[i],heights[j])
